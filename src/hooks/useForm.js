@@ -20,13 +20,17 @@ const useForm = (Validate) => {
       };
     });
   };
+
+  const[register, setRegister] = useState();
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    setRegister(Object.keys(errors).length === 0 && values.username.trim() && values.email.trim() && values.password.trim() && values.password2.trim() && values.password == values.password2);
     setErrors(Validate(values));
   }
 
-  return {handleChange, values, handleSubmit,errors};
+  return {handleChange, values, handleSubmit, errors, register};
  
 };
 

@@ -58,3 +58,12 @@ a{
     font-size: medium;
     margin-top: 3px;
 }
+.top-portion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.bottom-portion{
+    text-align: center;
+}

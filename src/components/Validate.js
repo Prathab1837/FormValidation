@@ -1,6 +1,6 @@
 export default function Validate(values){
     let errors = {};
-
+    
     if (!values.username.trim()) {
         errors.username = "*Username required";
     }
@@ -22,5 +22,6 @@ export default function Validate(values){
     } else if (values.password2 !== values.password) {
         errors.password2 = "*Password do not match";
     }
+     
     return errors;
 }

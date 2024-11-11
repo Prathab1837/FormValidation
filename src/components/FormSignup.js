@@ -1,11 +1,16 @@
 import React from 'react';
 import useForm from '../hooks/useForm';
 import Validate from './Validate';
+import Success from './Success';
 const FormSignup = () => {
-    const {handleChange, values, handleSubmit, errors} = useForm(Validate);
+    const {handleChange, values, handleSubmit, errors, register} = useForm(Validate);
+
     return (
     <div className='form-content'>
+
         <form className='form' onSubmit={handleSubmit}>
+        {/* Object.keys(errors).length === 0 && values.username.trim() && values.email.trim() && values.password.trim() && values.password2.trim() && values.password == values.password2 */}
+            {register ? <Success /> : <>
             <h1>Get start with us today! Create your account</h1>
             <div className='form-input'>
                 <label className='form-label' htmlFor="username">Username</label>
@@ -26,12 +31,17 @@ const FormSignup = () => {
                 <label className='form-label' htmlFor='password2'>Confirm Password</label>
                 <input className='form-input' name='password2' id='password2' type="password" placeholder='Confirm your password' value={values.password2} onChange={handleChange} />
                 {errors.password2 && <p className='errormsg'>{errors.password2}</p> }
-            </div>
+            </div>    
             <div className='footer'>
             <button className='form-input-btn' type='submit'>Sign Up</button>
             <span>Already have an account? Login <a href='#'>here</a></span>
             </div>
+
+        </>
+}
         </form>
+    
+
     </div>
   )
 }
